@@ -24,6 +24,8 @@ variable "app_services" {
     resource_group_key    = string
     app_service_plan_key  = string
     verification_agent_ip = string
+    ip_rule_name          = string
+    tm_rule_name          = string
   }))
 }
 

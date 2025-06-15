@@ -11,13 +11,13 @@ resource "azurerm_windows_web_app" "this" {
     dynamic "ip_restriction" {
       for_each = [
         {
-          name       = "allow-ip"
+          name       = var.ip_rule_name
           ip_address = "${var.verification_agent_ip}/32"
           action     = "Allow"
           priority   = 100
         },
         {
-          name        = "allow-tm"
+          name        = var.tm_rule_name
           service_tag = "AzureTrafficManager"
           action      = "Allow"
           priority    = 200

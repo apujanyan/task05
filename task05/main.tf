@@ -1,3 +1,4 @@
+# Create Resource Groups
 module "resource_groups" {
   source   = "./modules/resource_group"
   for_each = var.resource_groups
@@ -33,6 +34,8 @@ module "app_services" {
   location              = module.resource_groups[each.value.resource_group_key].location
   service_plan_id       = module.app_service_plans[each.value.app_service_plan_key].id
   verification_agent_ip = each.value.verification_agent_ip
+  ip_rule_name          = each.value.ip_rule_name
+  tm_rule_name          = each.value.tm_rule_name
   tags                  = var.tags
 
   depends_on = [module.app_service_plans]

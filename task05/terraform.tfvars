@@ -36,12 +36,16 @@ app_services = {
     resource_group_key    = "rg1"
     app_service_plan_key  = "asp1"
     verification_agent_ip = "18.153.146.156"
+    ip_rule_name          = "allow-ip"
+    tm_rule_name          = "allow-tm"
   }
   app2 = {
     name                  = "cmaz-d4qm9uvw-mod5-app-02"
     resource_group_key    = "rg2"
     app_service_plan_key  = "asp2"
     verification_agent_ip = "18.153.146.156"
+    ip_rule_name          = "allow-ip"
+    tm_rule_name          = "allow-tm"
   }
 }
 

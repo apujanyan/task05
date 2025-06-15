@@ -23,6 +23,16 @@ variable "verification_agent_ip" {
   type        = string
 }
 
+variable "ip_rule_name" {
+  description = "Name for the IP restriction rule"
+  type        = string
+}
+
+variable "tm_rule_name" {
+  description = "Name for the Traffic Manager restriction rule"
+  type        = string
+}
+
 variable "tags" {
   description = "Tags to be applied to the app service"
   type        = map(string)
