@@ -1,7 +1,9 @@
-output "app_service_plans" {
-  value = { for k, asp in azurerm_app_service_plan.this : k => {
-    name                = asp.name
-    location            = asp.location
-    resource_group_name = asp.resource_group_name
-  } }
+output "id" {
+  description = "ID of the app service plan"
+  value       = azurerm_service_plan.this.id
+}
+
+output "name" {
+  description = "Name of the app service plan"
+  value       = azurerm_service_plan.this.name
 }

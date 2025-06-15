@@ -1,27 +1,48 @@
-variable "traffic_manager_profile" {
+variable "name" {
+  description = "Name of the traffic manager profile"
+  type        = string
+}
+
+variable "resource_group_name" {
+  description = "Name of the resource group"
+  type        = string
+}
+
+variable "routing_method" {
+  description = "Traffic routing method"
+  type        = string
+  default     = "Performance"
+}
+
+variable "dns_config" {
+  description = "DNS configuration for traffic manager"
   type = object({
-    name               = string
-    routing_method     = string
-    resource_group_key = string
+    relative_name = string
+    ttl           = number
   })
 }
 
-variable "resource_groups" {
-  type = map(object({
-    name     = string
-    location = string
-  }))
+variable "monitor_config" {
+  description = "Monitor configuration for traffic manager"
+  type = object({
+    protocol = string
+    port     = number
+    path     = string
+  })
 }
 
-variable "app_services" {
-  type = map(object({
-    name                = string
-    resource_group_name = string
-    location            = string
-    default_hostname    = string
+variable "endpoints" {
+  description = "List of endpoints for traffic manager"
+  type = list(object({
+    name               = string
+    target_resource_id = string
+    weight             = number
+    priority           = number
   }))
 }
 
 variable "tags" {
-  type = map(string)
+  description = "Tags to be applied to the traffic manager profile"
+  type        = map(string)
+  default     = {}
 }

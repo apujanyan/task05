@@ -1,52 +1,52 @@
 variable "resource_groups" {
+  description = "Map of resource groups configuration"
   type = map(object({
     name     = string
     location = string
   }))
-  description = "Map of resource groups with names and locations"
 }
 
 variable "app_service_plans" {
+  description = "Map of app service plans configuration"
   type = map(object({
     name               = string
-    worker_count       = number
-    sku                = string
     resource_group_key = string
+    os_type            = string
+    sku_name           = string
+    worker_count       = number
   }))
-  description = "Map of App Service Plans with name, instance count, SKU, and resource group reference"
 }
 
 variable "app_services" {
+  description = "Map of app services configuration"
   type = map(object({
-    name                 = string
-    app_service_plan_key = string
-    resource_group_key   = string
+    name                  = string
+    resource_group_key    = string
+    app_service_plan_key  = string
+    verification_agent_ip = string
   }))
-  description = "Map of App Services with name and related App Service Plan and Resource Group"
 }
 
-variable "traffic_manager_profile" {
+variable "traffic_manager" {
+  description = "Traffic Manager configuration"
   type = object({
     name               = string
-    routing_method     = string
     resource_group_key = string
+    routing_method     = string
+    dns_config = object({
+      relative_name = string
+      ttl           = number
+    })
+    monitor_config = object({
+      protocol = string
+      port     = number
+      path     = string
+    })
   })
-  description = "Traffic Manager Profile configuration"
 }
 
 variable "tags" {
+  description = "Common tags to be applied to all resources"
   type        = map(string)
-  description = "Common tags applied to all resources"
-}
-
-variable "allow-ip" {
-  description = "IP address allowed access to Web Apps"
-  type        = string
-  default     = "18.153.146.156" # your verification agent IP
-}
-
-variable "allow-tm" {
-  description = "Service tag allowed access to Web Apps"
-  type        = string
-  default     = "AzureTrafficManager"
+  default     = {}
 }
