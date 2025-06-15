@@ -13,11 +13,11 @@ resource "azurerm_windows_web_app" "this" {
       for_each = [
         {
           name       = "allow-ip"
-          ip_address = "${var.allow_ip}/32"
+          ip_address = "${var.allow-ip}/32"
         },
         {
           name        = "allow-tm"
-          service_tag = var.allow_tm
+          service_tag = var.allow-tm
         }
       ]
 

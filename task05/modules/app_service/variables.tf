@@ -24,12 +24,12 @@ variable "app_service_plans" {
   description = "Map of App Service Plans to attach App Services to"
 }
 
-variable "allow_ip" {
+variable "allow-ip" {
   description = "Verification agent IP address allowed to access App Service"
   type        = string
 }
 
-variable "allow_tm" {
+variable "allow-tm" {
   description = "Traffic Manager service tag"
   type        = string
 }

@@ -51,5 +51,5 @@ tags = {
   Creator = "aramazd_apujanyan@epam.com"
 }
 
-allow_ip = "18.153.146.156"
-allow_tm = "AzureTrafficManager"
+allow-ip = "18.153.146.156"
+allow-tm = "AzureTrafficManager"

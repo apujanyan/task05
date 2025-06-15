@@ -39,13 +39,13 @@ variable "tags" {
   description = "Common tags applied to all resources"
 }
 
-variable "allow_ip" {
+variable "allow-ip" {
   description = "IP address allowed access to Web Apps"
   type        = string
   default     = "18.153.146.156" # your verification agent IP
 }
 
-variable "allow_tm" {
+variable "allow-tm" {
   description = "Service tag allowed access to Web Apps"
   type        = string
   default     = "AzureTrafficManager"

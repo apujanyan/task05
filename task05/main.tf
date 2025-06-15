@@ -19,8 +19,8 @@ module "app_services" {
   app_services      = var.app_services
   app_service_plans = module.app_service_plans.app_service_plans
   resource_groups   = module.resource_groups.resource_groups
-  allow_ip          = var.allow_ip
-  allow_tm          = var.allow_tm
+  allow_ip          = var.allow-ip
+  allow_tm          = var.allow-tm
   tags              = var.tags
 }
 
