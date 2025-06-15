@@ -1,12 +1,10 @@
-variable "name" {
-  type = string
-}
-
-variable "location" {
-  type = string
+variable "resource_groups" {
+  type = map(object({
+    name     = string
+    location = string
+  }))
 }
 
 variable "tags" {
-  type    = map(string)
-  default = {}
+  type = map(string)
 }

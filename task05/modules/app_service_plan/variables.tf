@@ -1,24 +1,19 @@
-variable "name" {
-  type = string
+variable "app_service_plans" {
+  type = map(object({
+    name               = string
+    worker_count       = number
+    sku                = string
+    resource_group_key = string
+  }))
 }
 
-variable "location" {
-  type = string
-}
-
-variable "resource_group_name" {
-  type = string
-}
-
-variable "sku" {
-  type = string
-}
-
-variable "worker_count" {
-  type = number
+variable "resource_groups" {
+  type = map(object({
+    name     = string
+    location = string
+  }))
 }
 
 variable "tags" {
-  type    = map(string)
-  default = {}
+  type = map(string)
 }

@@ -1,30 +1,40 @@
-variable "name" {
-  type = string
+variable "app_services" {
+  type = map(object({
+    name                 = string
+    app_service_plan_key = string
+    resource_group_key   = string
+  }))
+  description = "Map of App Services with name, App Service Plan key, and Resource Group key"
 }
 
-variable "location" {
-  type = string
+variable "resource_groups" {
+  type = map(object({
+    name     = string
+    location = string
+  }))
+  description = "Map of Resource Groups to be used for App Services"
 }
 
-variable "resource_group_name" {
-  type = string
+variable "app_service_plans" {
+  type = map(object({
+    name                = string
+    location            = string
+    resource_group_name = string
+  }))
+  description = "Map of App Service Plans to attach App Services to"
 }
 
-variable "app_service_plan_id" {
-  type = string
+variable "allow_ip" {
+  description = "Verification agent IP address allowed to access App Service"
+  type        = string
+}
+
+variable "allow_tm" {
+  description = "Traffic Manager service tag"
+  type        = string
 }
 
 variable "tags" {
-  type    = map(string)
-  default = {}
-}
-
-variable "allowed_ips" {
-  type    = list(string)
-  default = []
-}
-
-variable "allowed_service_tags" {
-  type    = list(string)
-  default = []
+  type        = map(string)
+  description = "Tags applied to App Services"
 }

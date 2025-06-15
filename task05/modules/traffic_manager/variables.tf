@@ -1,28 +1,27 @@
-variable "profile_name" {
-  type        = string
-  description = "The name of the Traffic Manager profile"
-}
-
-variable "resource_group_name" {
-  type        = string
-  description = "The name of the resource group in which to create the Traffic Manager profile"
-}
-
-variable "routing_method" {
-  type        = string
-  description = "The traffic routing method (e.g., Performance, Weighted, Priority, Geographic)"
-}
-
-variable "endpoints" {
-  type = list(object({
+variable "traffic_manager_profile" {
+  type = object({
     name               = string
-    target_resource_id = string
+    routing_method     = string
+    resource_group_key = string
+  })
+}
+
+variable "resource_groups" {
+  type = map(object({
+    name     = string
+    location = string
   }))
-  description = "List of endpoints to add to the Traffic Manager profile"
+}
+
+variable "app_services" {
+  type = map(object({
+    name                = string
+    resource_group_name = string
+    location            = string
+    default_hostname    = string
+  }))
 }
 
 variable "tags" {
-  type        = map(string)
-  description = "A mapping of tags to assign to the resource"
-  default     = {}
+  type = map(string)
 }

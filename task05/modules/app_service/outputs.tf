@@ -1,11 +1,8 @@
-output "id" {
-  value = azurerm_windows_web_app.app.id
-}
-
-output "name" {
-  value = azurerm_windows_web_app.app.name
-}
-
-output "hostname" {
-  value = azurerm_windows_web_app.app.default_hostname
+output "app_services" {
+  value = { for k, app in azurerm_windows_web_app.this : k => {
+    name                = app.name
+    resource_group_name = app.resource_group_name
+    location            = app.location
+    default_hostname    = app.default_hostname
+  } }
 }

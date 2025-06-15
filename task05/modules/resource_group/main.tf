@@ -1,5 +1,7 @@
-resource "azurerm_resource_group" "rg" {
-  name     = var.name
-  location = var.location
+resource "azurerm_resource_group" "this" {
+  for_each = var.resource_groups
+
+  name     = each.value.name
+  location = each.value.location
   tags     = var.tags
 }

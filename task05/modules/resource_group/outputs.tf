@@ -1,11 +1,6 @@
-output "id" {
-  value = azurerm_resource_group.rg.id
-}
-
-output "name" {
-  value = azurerm_resource_group.rg.name
-}
-
-output "location" {
-  value = azurerm_resource_group.rg.location
+output "resource_groups" {
+  value = { for k, rg in azurerm_resource_group.this : k => {
+    name     = rg.name
+    location = rg.location
+  } }
 }
