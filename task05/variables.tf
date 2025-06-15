@@ -3,6 +3,7 @@ variable "resource_groups" {
     name     = string
     location = string
   }))
+  description = "Map of resource group configurations with name and location"
 }
 
 variable "app_service_plans" {
@@ -12,14 +13,16 @@ variable "app_service_plans" {
     sku                = string
     worker_count       = number
   }))
+  description = "Map of App Service Plan configurations"
 }
 
 variable "app_services" {
   type = map(object({
-    name                 = string
-    resource_group_key   = string
+    name                = string
+    resource_group_key  = string
     app_service_plan_key = string
   }))
+  description = "Map of App Service configurations"
 }
 
 variable "traffic_manager" {
@@ -28,14 +31,16 @@ variable "traffic_manager" {
     resource_group_key = string
     routing_method     = string
   })
+  description = "Traffic Manager profile configuration"
 }
 
 variable "common_tags" {
-  type    = map(string)
-  default = {}
+  type        = map(string)
+  description = "Common tags to be applied to all resources"
+  default     = {}
 }
 
 variable "verification_ip" {
-  type    = string
-  default = "18.153.146.156"
+  type        = string
+  description = "IP address to allow access to App Services (verification agent)"
 }
