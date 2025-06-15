@@ -15,7 +15,7 @@ variable "routing_method" {
 
 variable "endpoints" {
   type = list(object({
-    name              = string
+    name               = string
     target_resource_id = string
   }))
   description = "List of endpoints to add to the Traffic Manager profile"
