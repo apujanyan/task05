@@ -18,8 +18,8 @@ variable "app_service_plans" {
 
 variable "app_services" {
   type = map(object({
-    name                = string
-    resource_group_key  = string
+    name                 = string
+    resource_group_key   = string
     app_service_plan_key = string
   }))
   description = "Map of App Service configurations"

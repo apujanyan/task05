@@ -30,13 +30,13 @@ app_service_plans = {
 
 app_services = {
   app1 = {
-    name                = "cmaz-d4qm9uvw-mod5-app-01"
-    resource_group_key  = "rg1"
+    name                 = "cmaz-d4qm9uvw-mod5-app-01"
+    resource_group_key   = "rg1"
     app_service_plan_key = "asp1"
   },
   app2 = {
-    name                = "cmaz-d4qm9uvw-mod5-app-02"
-    resource_group_key  = "rg2"
+    name                 = "cmaz-d4qm9uvw-mod5-app-02"
+    resource_group_key   = "rg2"
     app_service_plan_key = "asp2"
   }
 }
